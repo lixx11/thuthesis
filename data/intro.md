@@ -19,7 +19,88 @@ XFEL的产生离不开高质量的电子束，上世纪80年代光阴极微波�
 
 #### 1.1.2 X射线自由电子激光的物理原理
 
+#### 1.1.2.1 电子在波荡器中的运动
+考虑一个平板波荡器，其磁感应强度在$y=0$处沿$z$向已正弦形式变化，具体为：
 
+```
+\begin{equation}
+\bm{B} = -B_{0}\text{sin}(k_{u}z) \bm{e}_{y}
+\end{equation}
+```
+
+电子在磁场中收到洛伦兹力作用，
+
+```
+\begin{equation}
+\gamma m_{e} \dot{\bm{v}} = - e \bm{v} \times \bm{B}
+\end{equation}
+```
+
+应用$v_{z}=\dot{z} \approx v = \beta c = const$以及$v_{x} \ll v_{z}$，并代入初值条件，
+
+```
+$$x_{0} = 0, \quad \dot{x}(0) = \frac{eB_{0}}{\gamma m_{e} k_{u}}$$
+```
+可以得到电子在波荡器中的运动方程，
+\begin{equation}
+x(z) = \frac{K}{\beta \gamma k_{u}} \text{sin} (k_{u}z)
+\end{equation}
+
+#### 1.1.2.2 自发辐射
+
+在以电子纵向平均速度前进的运动坐标系中，利用洛伦兹变化得到电子在该坐标系内的运动。在忽略纵向的震荡情况下，相当于电子横向做简谐运动，其发出的电磁波的频率与电子简谐运动频率相同。然后变换回实验室坐标系中，得到实验室坐标系下的自发辐射的波长公式，
+
+```
+\begin{equation}
+\lambda_{l} = \frac{\lambda_{u}}{2 \gamma ^{2}} (1 + \frac{K^{2}}{2} + \gamma^{2} \theta ^{2})
+\end{equation}
+```
+其中$\theta$为相对于电子束前进方向$z$的发射角。
+
+#### 1.1.2.3 共振条件
+
+假设波荡器中注入波长为$\lambda_{l}$的种子激光，其电场描述为
+```
+\begin{equation}
+E_{x}(z,t) = E_{0}\text{cos}(k_{l}z - \omega_{l} t + \psi _{0})
+\end{equation}
+```
+
+其中$k_{l} = \omega _{l} / c = 2\pi / \lambda_{l}$。电子收到该辐射场的作用，能量对时间的导数为
+```
+\begin{equation}
+\frac{dW}{dt} = \bm{v \cdot F} = -e v_{x}(t)E_{x}(t)
+\end{equation}
+```
+
+电子持续向辐射场提供能量的一个定性的条件即共振条件为：在电子走过半个波荡器周期$\lambda_{u}$时，电磁波比电子多行进半个波长$\lambda_{l}$，见图\ref{figure:resonance-condition}。
+
+共振条件用公式描述为
+
+```
+\begin{equation}
+\frac{\lambda_{u} / 2}{\bar{v}_{z}} = \frac{\lambda_{u} / 2 + \lambda_{l} /2}{c}
+\end{equation}
+```
+
+代入式\ref{equation:vz-mean}，使用近似条件`$\bar{v}_{z} \approx c$`，可以得到符合共振条件的波长为
+```
+\begin{equation}
+\lambda_{l} = \frac{\lambda_{u}}{2\gamma ^{2}}(1 + \frac{K^{2}}{2})
+\end{equation}
+```
+
+自发辐射波长正好符合共振条件，这也就解释了为什么自发辐射可以作为XFEL的种子激光。波荡器中对电子与电磁波之间的相互作用的一个定性的解释是：不同的电子相对电磁波具有不同的相位，部分电子从电磁波获取能量，部分电子损失能量，从而导致较快的电子减速，较慢的电子加速，最终实现电磁辐射对电子密度的调制（microbunching）。整体的效果是电子在波荡器中运动时将一部分动能转移给电磁辐射，实现电磁辐射的增益。根据单程增益的大小，FEL可以分为低增益和高增益两种模式。目前大部分的XFEL设施采用的SASE就是一种高增益模式，利用波荡器中高速电子的自发辐射与电子的相互作用，通过指数放大（I=I0exp(z/Lg0)），最终实现相干性极好的脉冲式X射线激光。
+
+一维情况下，功率增益长度
+
+```
+Lg0 = 
+```
+
+其中$\rho$为高增益FEL的Pierce参数，定义为
+
+FEL的相对带宽接近与rho，饱和功率约为电子束能量的rho倍。
 
 
 #### 1.1.3 X射线自由电子激光的应用领域
